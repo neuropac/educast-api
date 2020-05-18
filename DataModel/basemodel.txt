@@ -4,7 +4,7 @@ user
 
 	student
 		id
-		userID
+		userUID
 		nickname
 		address
 		gender
@@ -13,7 +13,7 @@ user
 
 	instructor
 		id
-		userID
+		userUID
 		businessname
 		address
 
@@ -30,8 +30,8 @@ course
 	tograde
 	seats_max
 	seats_min
-	coursefee
-
+	fee
+	
 schedule
 	id
 	courseid
@@ -40,12 +40,12 @@ schedule
 	end_dt
 	recurrence
 		type
+		typedesc
 		repeat_interval
-		weekly_days
+		weekly_day
 		monthly_day
 		monthly_week
 		monthly_weekday
-	duration
 	timezone
 	seats_remaining
 	seats_filled
@@ -70,8 +70,9 @@ purchase
 
 invoice
 	id
+	status
 	course_fee
-	service_charge
+	service_fee
 	GST
 	total_amt_due
 	total_amt_paid
