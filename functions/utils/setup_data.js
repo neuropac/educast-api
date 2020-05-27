@@ -39,6 +39,32 @@ function initializeAppFunctions() {
   return db;
 }
 
+function addNewEnrollment(){
+    // [START add_lovelace]
+    let docRef = db.collection('enrollment');
+    
+    let setAda = docRef.set({
+        first: 'Ada',
+        last: 'Lovelace',
+        born: 1815
+    });
+    // [END add_lovelace]
+    
+    // [START add_turing]
+    let aTuringRef = db.collection('users').doc('aturing');
+    
+    let setAlan = aTuringRef.set({
+        'first': 'Alan',
+        'middle': 'Mathison',
+        'last': 'Turing',
+        'born': 1912
+    });
+    // [END add_turing]
+    
+    return Promise.all([setAda, setAlan]);
+}
+
+
 function initializeAppSA() {
   // [START initialize_app_service_account]
 
@@ -1081,6 +1107,10 @@ describe('Firestore Smoketests', () => {
 
   it('should add quickstart data', () => {
     return quickstartAddData(db);
+  });
+
+  it('should signin use with correct email and password', () => {
+    return signInWithEmailAndPassword();
   });
 
 //   it('should query quickstart data', () => {
